@@ -73,7 +73,7 @@ function d_geneexp_header() {
         if ($("#species").val() === "gallus") {
           $("#gallus").show();
           $(function() {
-            var availableTags = <?php include("names/chickenvname.php"); ?>;
+            var availableTags = <?php include("names/chickenall.php"); ?>;
             $("#genename").autocomplete({
               source: availableTags,
               autoFocus:true
