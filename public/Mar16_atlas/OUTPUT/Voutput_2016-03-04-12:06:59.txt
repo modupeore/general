@@ -1,0 +1,3 @@
+Line	Chrom	Position	Ref	Alt	Class	Annotation	Gene Name	dbSNP
+ROSS	chr1	402	C	T	SNV	UPSTREAM	-	 	
+ROSS	chr1	502	A	G	SNV	UPSTREAM	-	 	
