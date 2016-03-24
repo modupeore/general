@@ -277,9 +277,7 @@
     <span>Check to view only processed libraries:</span>
     <input type="checkbox" name="rnull" value="true"> 
     <input type="submit" name="order" value="Go"/></p></div>
-</form></td><td align="right">
-<?php $eee = shell_exec("perl ".$base_path."/SQLscripts/summarystats.pl "); echo $eee;?>
-</td></tr></table>
+</form></tr></table>
 <hr>
 <?php
   if(!empty($db_conn) && (!empty($_POST['order']) || !empty($_POST['meta_data']) || !empty($_POST['downloadvalues']))) {
@@ -300,7 +298,7 @@
         $output1 = "$base_path/OUTPUT/$listfile";
         $pquery = "perl ".$base_path."/SQLscripts/outputmetadata.pl -1 ".$dataline." -2 ".$output1."";
         shell_exec($pquery); 
-        header("Location:results.php?file=$output1&name=metadata.txt");
+        header('Location:results.php?file='.$output1.'&name=metadata.txt');
       }
       meta_display($phpscript, $result, $primary_key);
     }

@@ -1,0 +1,11 @@
+library_id	bird_id	species	line	tissue	method	index	chip_result	scientist	date	notes
+15		gallus	WLH	liver	index_seq	4	accept	Liang Sun	2012-07-03 16:20:58	LMH cells heat stress 43C, LMHindex4
+16		gallus	WLH	liver	index_seq	6	accept	Liang Sun	2011-11-02 14:44:02	LMH cells heat stress 43oc, LMHindex6
+17		gallus	WLH	liver	index_seq	5	accept	Liang Sun	2011-11-02 14:44:08	LMH cells control temp, LMHindex5
+18		gallus	WLH	liver	index_seq	7	accept	Liang Sun	2011-11-02 14:44:15	LMH cells control temp, LMHindex7
+19		gallus	WLH	liver	index_seq	2	accept	Liang Sun	2011-11-02 14:44:21	LMH cells normal temp, LMHindex2
+20		gallus	WLH	liver	index_seq	12	accept	Liang Sun	2012-04-20 03:39:55	LMH cells heat stress 43oC, LMHindex12
+21		gallus	WLH	liver	rna_seq	0	accept	Sandip Kumar	2011-11-02 14:44:36	SK5411, 426114
+22	1234	gallus	WLH	liver	index_seq			Sandip Kumar	2012-04-20 15:33:45	
+23		gallus	WLH	liver	rna_seq	0	reject	Sandip Kumar	2011-11-02 14:44:43	
+24		gallus	WLH	liver	rna_seq	0		Sandip Kumar	2011-11-02 14:44:51	SK5411, 426115
