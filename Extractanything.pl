@@ -30,15 +30,27 @@ $dbh = DBI->connect($dsn, $user, $passwd) or die "Connection Error: $DBI::errstr
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # CONNECT
 #GETTING ALL THE LIBRARIES FROM THE DATABASE.
-my $syntax= "select a.gene_name, group_concat(a.library_id) from variants_annotation a join vw_libraryinfo b on a.library_id = b.library_id where b.species like \"gall%\" group by a.gene_name";
+#my $syntax= "select a.gene_name, group_concat(a.library_id) from variants_annotation a join vw_libraryinfo b on a.library_id = b.library_id where b.species like \"gall%\" group by a.gene_name";
 
+my $syntax = "select a.library_id, c.line, c.tissue,a.gene_short_name, concat(a.chrom_no,':',a.chrom_start,'-',a.chrom_stop),
+		a.fpkm, b.ref_allele, b.alt_allele, b.quality from genes_fpkm a join 
+		variants_result b on a.library_id = b.library_id join vw_libraryinfo c on a.library_id = c.library_id
+		where a.chrom_no = \"chr10\" and a.gene_short_name = \"IGF1R\" and b.chrom=\"chr10\" 
+		and b.ref_allele = \"C\" and b.alt_allele = \"CT\" and b.position = 16191296 
+		group by a.library_id";
+#my $syntax = "select a.library_id, c.line,c.tissue, a.gene_short_name, concat(a.chrom_no,':',a.chrom_start,'-',a.chrom_stop), 
+#a.fpkm from genes_fpkm a join vw_libraryinfo c on a.library_id = c.library_id
+#where a.chrom_no = \"chr10\" and a.gene_short_name = \"IGF1R\" group by a.library_id";
 $sth = $dbh->prepare($syntax);
 $sth->execute or die "SQL Error: $DBI::errstr\n";			
 #TABLE FORMAT
 my $i = 0;
-while ( my ($row, $so) = $sth->fetchrow_array() ) {
+while ( my @row = $sth->fetchrow_array() ) {
 	$i++;
-	print OUT "$row\n";
+	foreach my $jj (0..$#row-1){
+		print OUT "$row[$jj]\t";
+	}
+	print OUT "$row[$#row]\n";
 }
 print "$i\n";
 close (OUT);
